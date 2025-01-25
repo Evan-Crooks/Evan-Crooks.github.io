@@ -1,0 +1,64 @@
+:root {
+    --primary-color: #001639;
+    --secondary-color: #003f88;
+    --tertiary-color: #00509d;
+    --quaternary-color: #fdc500;
+    --quinary-color: #ffd500;
+    --text-color: lightgray;
+}
+* {
+    font: 16px Arial, sans-serif;
+    text-align: center;
+    color: whitesmoke;
+}
+Body {
+    background: var(--primary-color);
+    margin: 0;
+    padding: 10%;
+    align-items: center;
+    position: relative;
+}
+.skillList{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em; /* Add gap between skills */
+    margin: 0 auto; /* Center the skill list */
+    padding: 0;
+}
+.skill {
+    border: 5px solid;
+    border-image: linear-gradient(to bottom right, var(--tertiary-color), var(--quinary-color)) 1;
+    width: 10em;
+    height: 10em;
+    text-align: center;
+    overflow: hidden; /* Ensure the border radius is applied to the border */
+    margin: 0;
+}
+h1 {
+    font-size: 5em;
+    background: linear-gradient(to bottom right, var(--tertiary-color), var(--quinary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.skill > img {
+    width: 90%;
+    height: 90%;
+    object-fit: fill;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.introduction > h1{
+    margin-bottom: 0;
+    padding-bottom: 0em;
+}
+.introduction > h3 {
+    margin-top: 0;
+    padding-top: 0;
+}
