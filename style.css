@@ -1,18 +1,27 @@
 :root {
-    --primary-color: #000d23;
+    --primary-color: #72119c;
     --secondary-color: #003f88;
-    --tertiary-color: #00509d;
+    --tertiary-color: #ff00d9;
     --quaternary-color: #fdc500;
-    --quinary-color: #ffd500;
-    --text-color: lightgray;
+    --quinary-color: #a1f1a5d1;
+    --text-color: rgb(0, 0, 0);
 }
+
+@font-face {
+    font-family: 'font';
+    src: url('Garamond3LTStd.otf') format('serif');
+    src: url('HelveticaLTStd-Roman.otf') format('sans-serif');
+}
+
 * {
-    font: 16px Arial, sans-serif;
+    font: 16px 'font', sans-serif;
     text-align: center;
     color: var(--text-color);
 }
+
 Body {
-    background: var(--primary-color);
+
+    background: linear-gradient(to bottom right, var(--primary-color), var(--quinary-color));
     margin: 0;
     padding: 10%;
     align-items: center;
@@ -37,6 +46,7 @@ Body {
     margin: 0;
 }
 h1 {
+    font: 16px 'font', serif;
     font-size: 5em;
     background: linear-gradient(to bottom right, var(--tertiary-color), var(--quinary-color));
     background-clip: text;
@@ -71,7 +81,6 @@ h3 {
 }
 
 .banner {
-    background-color: var(--secondary-color);
     padding: 1em;
     display: flex;
     justify-content: space-around;
@@ -80,6 +89,17 @@ h3 {
     width: 100%;
     z-index: 1000;
     left: 0;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+}
+
+.banner:hover {
+    background-color: var(--secondary-color);
+    transition-duration: 1s;
+}
+
+.banner.scrolled {
+    background-color: var(--secondary-color);
 }
 
 .banner button {
@@ -147,4 +167,35 @@ h3 {
 
 .exit-frame {
     animation: slideOutToTop 1s ease-out;
+}
+
+.contact {
+    margin-top: 2em;
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+.contact h3 {
+    font-size: 1.5em;
+    color: var(--quaternary-color);
+}
+
+.contact p {
+    margin: 0.5em 0;
+}
+
+.bigImg {
+    width: 10em;
+    height: 10em;
+    padding-top: .5em;
+}
+
+.dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+    border: transparent;
 }

@@ -3,6 +3,7 @@
 <head>
     <title>Evan Crooks</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts/font-file.css">
     <script src="script.js"></script>
 </head>
 
@@ -11,7 +12,7 @@
         <button onclick="scrollToSection('home')">Home</button>
         <button onclick="scrollToSection('about')">About</button>
         <button onclick="scrollToSection('projects')">Projects</button>
-        <button onclick="scrollToSection('contact')">Contact</button>
+        <button onclick="scrollToSection('contact-info')">Contact</button>
     </div>
     <div id="home" class="introduction">
         <h1>Evan Crooks</h1>
@@ -29,11 +30,11 @@
     <div class="section">
         <h3>Skills</h3>
         <ul class="skillList">
-            <div class="skill">
+            <div class="skill bigImg">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg">
                 C#
             </div>
-            <div class="skill">
+            <div class="skill bigImg">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg">
                 C++
             </div>
@@ -52,7 +53,52 @@
     <div id="projects">
         <h3>Projects</h3>
     </div>
+    <div class="blob"></div>
+    <div class="contact" id="contact-info">
+        <h3>Contact Information</h3>
+        <p>Phone: 567-429-8205</p>
+        <p>Email: <a href="mailto:ecrooks2@kent.edu">ecrooks2@kent.edu</a></p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const numDots = 100;
+            const body = document.body;
 
+            for (let i = 0; i < numDots; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.style.top = `${Math.random() * 100}vh`;
+                dot.style.left = `${Math.random() * 100}vw`;
+                body.appendChild(dot);
+            }
+
+            body.addEventListener('mousemove', (e) => {
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach(dot => {
+                    const rect = dot.getBoundingClientRect();
+                    const distance = Math.sqrt(
+                        Math.pow(e.clientX - (rect.left + rect.width / 2), 2) +
+                        Math.pow(e.clientY - (rect.top + rect.height / 2), 2)
+                    );
+                    if (distance < 20) {
+                        dot.style.backgroundColor = 'var(--quaternary-color)';
+                        dot.style.border = 'none';
+                    } else {
+                        dot.style.backgroundColor = 'transparent';
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                const banner = document.querySelector('.banner');
+                if (window.scrollY > 0) {
+                    banner.classList.add('scrolled');
+                } else {
+                    banner.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
